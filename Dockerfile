@@ -14,7 +14,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of your application code to the container
 COPY . .
 
-COPY .env .
 
 # Expose the port that FastAPI runs on
 EXPOSE 3000
