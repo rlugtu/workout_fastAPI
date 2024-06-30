@@ -7,7 +7,7 @@ class CreateWorkout(TypedDict):
     description: str
     endDate: Optional[datetime.datetime]
 
-class PutProgram(TypedDict, total=False):
+class PutWorkout(TypedDict, total=False):
     name: str
     description: str
     endDate: Optional[datetime.datetime]

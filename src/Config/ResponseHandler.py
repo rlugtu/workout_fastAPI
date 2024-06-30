@@ -4,6 +4,7 @@ from typing import Optional
 
 T = TypeVar('T')
 
+
 class ResponseModel(BaseModel, Generic[T]):
     data: Optional[T]
 

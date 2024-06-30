@@ -13,15 +13,18 @@ async def get_all(user_id: str = Depends(auth_user)):
     response = await get_all_programs(user_id)
     return APIResponse(response)
 
+
 @router.get("/{program_id}", response_model=ResponseModel[Program])
 async def get_one(program_id: str, include_workouts: bool = False, user_id: str = Depends(auth_user)):
     response = await get_program(program_id, include_workouts, user_id)
     return APIResponse(response)
 
+
 @router.post("/", response_model=ResponseModel[Program])
 async def create(program: CreateProgram, user_id: str = Depends(auth_user)):
     response = await create_program(program, user_id)
     return APIResponse(response)
+
 
 @router.put("/{program_id}", response_model=ResponseModel[Program])
 async def update(program_id: str, program: PutProgram, user_id: str = Depends(auth_user)):

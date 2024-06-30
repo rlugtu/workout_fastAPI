@@ -19,6 +19,7 @@ async def get_all_programs(user_id: str) -> List[Program]:
             "error": f"{e}"
         })
 
+
 async def get_program(program_id: str, include_workouts: bool, user_id:str) -> Program:
     try:
         return await prisma.program.find_unique(
@@ -36,6 +37,7 @@ async def get_program(program_id: str, include_workouts: bool, user_id:str) -> P
             "error": f"{e}"
         })
 
+
 async def create_program(program: CreateProgram, user_id: str) -> Program:
     try:
         return await prisma.program.create(
@@ -50,6 +52,7 @@ async def create_program(program: CreateProgram, user_id: str) -> Program:
             "error": f"{e}"
         })
 
+
 async def update_program(program_id: str, program: PutProgram, user_id: str) -> Program:
     try:
         return await prisma.program.update(
@@ -62,6 +65,7 @@ async def update_program(program_id: str, program: PutProgram, user_id: str) -> 
         raise HTTPException(status_code=422, detail={
             "error": f"{e}"
         })
+
 
 async def delete_program(program_id: str, user_id: str) -> Program:
     try:
