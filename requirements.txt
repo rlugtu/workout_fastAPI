@@ -1,0 +1,15 @@
+cffi==1.16.0
+cryptography==42.0.8
+ecdsa==0.19.0
+pyasn1==0.6.0
+pycparser==2.22
+python-jose==3.3.0
+rsa==4.9
+six==1.16.0
+jose
+uvicorn
+fastapi
+python-jose
+prisma
+pydantic
+flake8
