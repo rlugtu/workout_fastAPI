@@ -20,4 +20,4 @@ EXPOSE 3000
 # Command to run your FastAPI application using uvicorn
 CMD echo "Running setup tasks..." \
     && prisma generate \
-    && uvicorn src.main:app --host 0.0.0.0 --port 3000 --reload
+    && uvicorn src.main:app --host 0.0.0.0 --port 3000
