@@ -14,10 +14,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of your application code to the container
 COPY . .
 
+COPY .env .
+
 # Expose the port that FastAPI runs on
 EXPOSE 3000
 
 # Command to run your FastAPI application using uvicorn
-CMD echo "Running setup tasks..." \
-    && prisma generate \
-    && uvicorn src.main:app --host 0.0.0.0 --port $PORT
+# CMD echo "Running setup tasks..." \
+#     && prisma generate \
+#     && uvicorn src.main:app --host 0.0.0.0 --port 3000
+CMD ["sh", "-c", "echo 'Running setup on port: $PORT' && prisma generate && uvicorn src.main:app --host 0.0.0.0 --port 3000"]
