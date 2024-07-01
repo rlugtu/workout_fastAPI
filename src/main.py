@@ -6,6 +6,8 @@ from prisma import Prisma
 from Middleware.Exceptions import exceptions_handler
 from Resources.Programs import router as programs_router
 from Resources.Workouts import router as workouts_router
+from Resources.Users import router as users_router
+from Resources.Exercises.LiftExercise import router as lift_exercises_router
 
 app = FastAPI()
 prisma = Prisma()
@@ -24,6 +26,8 @@ app.add_exception_handler(Exception, exceptions_handler)
 
 app.include_router(programs_router)
 app.include_router(workouts_router)
+app.include_router(users_router)
+app.include_router(lift_exercises_router)
 
 @app.on_event("startup")
 async def startup():

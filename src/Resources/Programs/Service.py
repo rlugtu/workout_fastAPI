@@ -39,6 +39,7 @@ async def get_program(program_id: str, include_workouts: bool, user_id:str) -> P
 
 
 async def create_program(program: CreateProgram, user_id: str) -> Program:
+    print(program, user_id)
     try:
         return await prisma.program.create(
             data={

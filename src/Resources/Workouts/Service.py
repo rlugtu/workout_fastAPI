@@ -124,7 +124,7 @@ async def delete_workout(workout_id: str, user_id: str) -> Workout:
                 "program": True
             }
         )
-        # print(workout.program is not None, workout.program.userId)
+
         if workout.program is not None and workout.program.userId !=  user_id:
             raise HTTPException(status_code=403, detail={
                 "error": "Not authorized to access this resource"

@@ -30,12 +30,10 @@ async def create(workout: CreateWorkout, program_id: str, user_id: str = Depends
 @router.put("/{workout_id}", response_model=ResponseModel[Workout])
 async def update(workout_id: str, updatedWorkout: PutWorkout, user_id: str = Depends(auth_user)):
     response = await update_workout(workout_id, updatedWorkout, user_id)
-
     return APIResponse(response)
 
 
 @router.delete("/{workout_id}", response_model=ResponseModel[Workout])
 async def delete(workout_id: str, user_id: str = Depends(auth_user)):
     response = await delete_workout(workout_id, user_id)
-
     return APIResponse(response)
