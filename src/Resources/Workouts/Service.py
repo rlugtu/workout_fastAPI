@@ -76,7 +76,7 @@ async def create_workout(workout: CreateWorkout, program_id: str, user_id: str) 
         })
 
 
-async def update_workout(workout_id: str, updatedWorkout: PutWorkout, user_id:str) -> Workout:
+async def update_workout(workout_id: str, updatedWorkout: PutWorkout, user_id: str) -> Workout:
     try:
         workout = await prisma.workout.find_first_or_raise(
             where={

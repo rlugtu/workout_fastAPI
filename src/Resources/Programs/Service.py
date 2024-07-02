@@ -22,7 +22,7 @@ async def get_all_programs(user_id: str) -> List[Program]:
 
 async def get_program(program_id: str, include_workouts: bool, user_id:str) -> Program:
     try:
-        return await prisma.program.find_unique(
+        return await prisma.program.find_unique_or_raise(
             where={
                 "id": program_id,
                 "userId": user_id

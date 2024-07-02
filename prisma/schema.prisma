@@ -51,7 +51,7 @@ model Workout {
     updatedAt DateTime  @updatedAt
     deletedAt DateTime?
 
-    liftActivities   LiftingActivity[]
+    liftActivities   LiftActivity[]
     sportActivities  SportActivity[]
     cardioActivities CardioActivity[]
 
@@ -59,7 +59,7 @@ model Workout {
     programId String
 }
 
-model LiftingActivity {
+model LiftActivity {
     id     String @id @default(cuid())
     sets   Int
     reps   Int
@@ -72,6 +72,10 @@ model LiftingActivity {
 
     workout   Workout @relation(fields: [workoutId], references: [id])
     workoutId String
+
+    liftExercise LiftExercise @relation(fields: [liftExerciseId], references: [id])
+
+    liftExerciseId String
 }
 
 model LiftExercise {
@@ -83,8 +87,9 @@ model LiftExercise {
     updatedAt DateTime  @updatedAt
     deletedAt DateTime?
 
-    user   User?   @relation(fields: [userId], references: [id])
-    userId String?
+    user           User?          @relation(fields: [userId], references: [id])
+    userId         String?
+    liftActivities LiftActivity[]
 }
 
 model SportActivity {
@@ -98,6 +103,9 @@ model SportActivity {
 
     workout   Workout @relation(fields: [workoutId], references: [id])
     workoutId String
+
+    sportExercise   SportExercise @relation(fields: [sportExerciseId], references: [id])
+    sportExerciseId String
 }
 
 model SportExercise {
@@ -111,6 +119,8 @@ model SportExercise {
 
     user   User?   @relation(fields: [userId], references: [id])
     userId String?
+
+    sportActivities SportActivity[]
 }
 
 model CardioActivity {
@@ -125,6 +135,9 @@ model CardioActivity {
 
     workout   Workout @relation(fields: [workoutId], references: [id])
     workoutId String
+
+    cardioExcercise  CardioExercise @relation(fields: [cardioExerciseId], references: [id])
+    cardioExerciseId String
 }
 
 model CardioExercise {
@@ -138,4 +151,6 @@ model CardioExercise {
 
     user   User?   @relation(fields: [userId], references: [id])
     userId String?
+
+    cardioActivities CardioActivity[]
 }

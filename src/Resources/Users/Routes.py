@@ -2,7 +2,6 @@ from fastapi import Depends
 from fastapi.routing import APIRouter
 from prisma.models import User
 from Config.ResponseHandler import APIResponse, ResponseModel
-from Resources.Users.Dtos import CreateUser
 from Resources.Users.Service import create_user
 from Middleware import auth_user
 
